@@ -1,0 +1,12 @@
+﻿<Properties StartupConfiguration="{FB5B1472-3EBC-4FAC-B856-8CC37611C7BF}|">
+  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.ItemProperties.PaginaProyecto PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Library/Frameworks/Mono.framework/Versions/5.2.0/lib/mono/msbuild/15.0/bin/Microsoft.Common.CurrentVersion.targets" line="2001" column="5" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

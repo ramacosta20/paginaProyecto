@@ -1,0 +1,55 @@
+﻿@using PaginaProyecto.Models
+@model Evento
+@{
+    if (ViewBag.Usuario == null)
+    {
+        Layout = "~/Views/Shared/_MiLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_MiLayoutLogueado.cshtml";
+    }
+    Evento unEvento = new Evento();
+    unEvento = ViewBag.unEvento;
+    int porcen = ViewBag.Porcentaje;
+}
+<div class="row container">
+    <div class="col-md-12" style="text-align: center">
+        <div class="jumbotron container">
+            <h3 style="text-align:center;">@unEvento.NombreEvento</h3>
+            <hr />
+            <img src="@Url.Content("~/Content/Eventos/")@unEvento.ImagenString" alt="cancer" class="img-responsive col-md-6 col-sm-12" style="max-width:450px"/>
+            <hr />
+            <div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" style="width:@porcen%" aria-valuenow="@porcen" aria-valuemin="0" aria-valuemax="100"><b></b></div>
+                </div>
+                <h4>$@unEvento.Recaudado/$@unEvento.Meta</h4>
+            </div>
+            <p style="color:black">
+            <b>
+                @unEvento.Descripcion
+            </b>
+            </p>
+            <h4>Termina: @unEvento.FechaTermina.ToShortDateString()</h4>
+            <h4>Cantidad de usuarios que donaron: @unEvento.CantDonantesEvento</h4>
+            @{
+                if (ViewBag.Usuario == null)
+                {
+                  
+                }
+                else
+                {
+                    <a href="/Evento/Donar?idEvento=@unEvento.EventoID" class="btn btn-warning btn-lg" role="button" aria-pressed="true" type="button">Donar</a>
+                }
+            }
+            
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <h1 style="color:white; font-size:250px; position: absolute; margin-left:5%;">GRACIAS</h1>
+    <canvas id="world" style="margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;"></canvas>
+</div>

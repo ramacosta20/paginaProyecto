@@ -1,0 +1,50 @@
+﻿@using PaginaProyecto.Models
+@model Evento
+@{
+    ViewBag.Title = "MisEventos";
+    Layout = "~/Views/Shared/_MiLayoutLogueado.cshtml";
+    Evento esteEvento;
+}
+<div style="margin-top: -4%">
+        @if (ViewBag.NoHayEventos == true)
+        {
+            <div class="row container">
+                <h3 class="col-md-9" style="text-align:center; margin-top:10%;">No hay eventos para mostrar</h3>
+                <a class="col-md-2" href="@Url.Action("AgregarEvento")"><span class="glyphicon glyphicon-plus" aria-hidden="true" style="padding-top: 75%;"></span></a>
+            </div>
+        }
+        else
+        {   <div class="row container">
+                <h3 class="col-md-9" style="text-align:center; margin-top:10%;">Mis Eventos</h3>
+                <a class="col-md-2" href="@Url.Action("AgregarEvento")"><span class="glyphicon glyphicon-plus" aria-hidden="true" style="padding-top: 75%;"></span></a>
+            </div>
+        }
+    </div>
+    @{
+        if (ViewBag.NoHayEventos == false)
+        {
+            List<Evento> listaEventos = ViewBag.listaEventosUsuario;
+            foreach (Evento oEvento in listaEventos)
+            {
+                esteEvento = oEvento;
+                <div class="jumbotron  col-lg-4 col-md-6" style="text-align: center; margin-left: 10%">
+                            @{
+                                if (oEvento.EnFecha == true)
+                                {
+                                    <span class="label label-success">Recaudando</span>
+
+                                }
+                                else
+                                {
+                                    <span class="label label-danger">Recaudacion Finalizada</span>
+                                }
+                            }
+                    <a href="/Evento/ModificarEvento?idEvento=@oEvento.EventoID"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color: deepskyblue; margin-left: 10%"></span></a>
+                    
+                    <img src="@Url.Content("~/Content/Eventos/")@oEvento.ImagenString" alt="foto" class="img-thumbnail" />
+                    <h5>@oEvento.NombreEvento</h5>
+                    <a href="/Evento/UnEvento?idEvento=@oEvento.EventoID" class="btn btn-warning btn-lg" role="button" aria-pressed="true">Ver más</a>
+                </div>
+            }
+        }
+    }

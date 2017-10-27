@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "MiPerfil";
+    Layout = "~/Views/Shared/_MiLayoutLogueado.cshtml";
+}
+<div style="margin-top: 7%" class="container">
+    <div class="col-md-5" style="background-color:#e3e3e3; border-radius: 5px">
+        <div class="container">
+            </br>
+            <img src="@Url.Content("~/Content/Usuarios/")@ViewBag.Usuario.ImagenString" class="img-thumbnail">
+            <h3>@ViewBag.Usuario.Nombre  @ViewBag.Usuario.Apellido</h3>
+            <div class="row">
+                <h3>@ViewBag.Usuario.Email</h3>
+                <a href="/RegistracionUsuario/ModificarUsuario/"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color: deepskyblue; margin-left: 10%"></span></a>
+            </div>
+        </div>
+        <ul>
+            @{
+                foreach (string item in ViewBag.Usuario.ListaEventosDono)
+                {
+                    <li>@item</li>
+                }
+            }
+        </ul>
+    </div>
+</div>
